@@ -108,7 +108,6 @@ JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_MainActivity_decode(JNI
 
 	jstring result=stoJstring(env,a);
 
-
 	return result;
 
 

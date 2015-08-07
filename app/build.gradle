@@ -1,28 +1,41 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.model.application'
 
-android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+model {
 
-    defaultConfig {
-        applicationId "com.sunshinehu.encryption"
-        minSdkVersion 9
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
 
-        ndk {
-            moduleName "encryption" // <-- This is the name of my C++ module!
+        defaultConfig.with {
+            applicationId = "com.sunshinehu.encryption"
+            minSdkVersion.apiLevel = 9
+            targetSdkVersion.apiLevel = 22
+            versionCode = 1
+            versionName = "1.0"
+
+        }
+
+        tasks.withType(JavaCompile) {
+            //指定编译JDK版本
+            sourceCompatibility = JavaVersion.VERSION_1_7
+            targetCompatibility = JavaVersion.VERSION_1_7
         }
 
     }
-    buildTypes {
+
+
+    android.ndk {
+        moduleName = "encryption" // <-- This is the name of my C++ module!
+    }
+
+    android.buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
         }
     }
+
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
