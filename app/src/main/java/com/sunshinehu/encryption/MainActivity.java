@@ -33,24 +33,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     }
 
-    static {
-
-        System.loadLibrary("encryption");
-
-    }
-
-    //加密方法
-    private native String  encode(String origin,String code);
-    //解密方法
-    private native String  decode(String result,String code);
 
 
     @Override
     public void onClick(View view) {
         if(view.getId()==R.id.button){
-            text.setText(encode(edit.getText().toString(),android.os.Build.SERIAL));
+            text.setText(EncryptionUtils.encodeMethod1(edit.getText().toString(), android.os.Build.SERIAL));
         }else if(view.getId()==R.id.button2){
-            text.setText(decode(edit.getText().toString(),android.os.Build.SERIAL));
+            text.setText(EncryptionUtils.decodeMethod1(edit.getText().toString(), android.os.Build.SERIAL));
         }
     }
 }

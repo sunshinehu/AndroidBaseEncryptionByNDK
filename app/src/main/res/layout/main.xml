@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:textSize="18sp"
-        android:hint="输入字符串（不支持中文）"
+        android:hint="输入字符串"
         android:textColor="#000000"
         android:textColorHint="#000000"/>
 

@@ -41,7 +41,7 @@ jstring stoJstring(JNIEnv* env, const char* pat)
 
 
 extern "C"
-JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_MainActivity_encode(JNIEnv *env, jclass obj, jstring pwd, jstring code){
+JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_encodeMethod1(JNIEnv *env, jclass obj, jstring pwd, jstring code){
 
 
 	char *a=jstringTostring(env,pwd);
@@ -80,7 +80,7 @@ JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_MainActivity_encode(JNI
 
 
 extern "C"
-JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_MainActivity_decode(JNIEnv *env, jclass obj, jstring pwd, jstring code){
+JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_decodeMethod1(JNIEnv *env, jclass obj, jstring pwd, jstring code){
 
 
 	char *a=jstringTostring(env,pwd);
@@ -111,4 +111,32 @@ JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_MainActivity_decode(JNI
 	return result;
 
 
+}
+
+
+
+extern "C"
+JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_encodeMethod2(JNIEnv *env, jclass type,
+															 jstring origin_) {
+	const char *origin = env->GetStringUTFChars(origin_, 0);
+
+	// TODO
+
+	env->ReleaseStringUTFChars(origin_, origin);
+
+	return env->NewStringUTF("Hello world");
+}
+
+
+
+extern "C"
+JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_decodeMethod2(JNIEnv *env, jclass type,
+															 jstring result_) {
+	const char *result = env->GetStringUTFChars(result_, 0);
+
+	// TODO
+
+	env->ReleaseStringUTFChars(result_, result);
+
+	return env->NewStringUTF("Hello world");
 }
