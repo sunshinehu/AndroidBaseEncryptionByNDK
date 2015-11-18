@@ -140,3 +140,4 @@ JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_decodeM
 
 	return env->NewStringUTF("Hello world");
 }
+

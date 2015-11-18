@@ -17,6 +17,42 @@
         android:textColorHint="#000000"/>
 
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 加密方式1"
+            android:textColor="#000000"
+            android:checked="true"
+            android:id="@+id/rb1"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 加密方式2"
+            android:textColor="#000000"
+            android:id="@+id/rb2"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 加密方式3"
+            android:textColor="#000000"
+            android:id="@+id/rb3"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 加密方式4"
+            android:textColor="#000000"
+            android:id="@+id/rb4"/>
+
+    </RadioGroup>
+
 
     <Button
         android:layout_width="match_parent"
