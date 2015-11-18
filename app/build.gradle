@@ -26,6 +26,7 @@ model {
 
     android.ndk {
         moduleName = "encryption" // <-- This is the name of my C++ module!
+        ldLibs += "log"
     }
 
     android.buildTypes {

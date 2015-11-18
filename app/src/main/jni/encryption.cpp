@@ -1,5 +1,6 @@
 #include <string.h>
 #include <jni.h>
+#include <android/log.h>
 
 /***
  *
@@ -37,7 +38,6 @@ jstring stoJstring(JNIEnv* env, const char* pat)
        jstring encoding = env->NewStringUTF("utf-8");
        return (jstring)env->NewObject(strClass, ctorID, bytes, encoding);
 }
-
 
 
 extern "C"
@@ -114,30 +114,33 @@ JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_decodeM
 }
 
 
-
 extern "C"
 JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_encodeMethod2(JNIEnv *env, jclass type,
-															 jstring origin_) {
-	const char *origin = env->GetStringUTFChars(origin_, 0);
+                                                             jstring origin_, jobject context) {
+    const char *origin = env->GetStringUTFChars(origin_, 0);
 
-	// TODO
+    //获取methodid
+    jclass contextCls=env->GetObjectClass(context);
+    jmethodID methodId=env->GetMethodID(contextCls,"getPackageManager","()Landroid/content/pm/PackageManager;");
 
-	env->ReleaseStringUTFChars(origin_, origin);
+    jobject packageManager=env->CallObjectMethod(context,methodId);
 
-	return env->NewStringUTF("Hello world");
+
+
+    env->ReleaseStringUTFChars(origin_, origin);
+
+    return env->NewStringUTF("Hello world");
 }
-
 
 
 extern "C"
 JNIEXPORT jstring JNICALL Java_com_sunshinehu_encryption_EncryptionUtils_decodeMethod2(JNIEnv *env, jclass type,
-															 jstring result_) {
-	const char *result = env->GetStringUTFChars(result_, 0);
+                                                             jstring result_, jobject context) {
+    const char *result = env->GetStringUTFChars(result_, 0);
 
-	// TODO
+    // TODO
 
-	env->ReleaseStringUTFChars(result_, result);
+    env->ReleaseStringUTFChars(result_, result);
 
-	return env->NewStringUTF("Hello world");
+    return env->NewStringUTF("Hello world");
 }
-
