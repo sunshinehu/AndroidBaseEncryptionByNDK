@@ -1,6 +1,7 @@
 package com.sunshinehu.encryption;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +41,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
 
+        text.setText("初次使用请先使用  getPackageManager().getPackageInfo(\"com.sunshinehu.encryption\",64).signatures[0].toCharsString() 在c 文件中配置签名值" );
+
     }
 
 
@@ -63,7 +66,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
             switch (flag){
                 case 1:
                     text.setText(EncryptionUtils.encodeMethod1(edit.getText().toString(), android.os.Build.SERIAL));
-                    break;
                 case 2:
                     text.setText(EncryptionUtils.encodeMethod2(edit.getText().toString(),this));
                     break;
