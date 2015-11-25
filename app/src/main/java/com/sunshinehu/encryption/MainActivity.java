@@ -66,8 +66,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
             switch (flag){
                 case 1:
                     text.setText(EncryptionUtils.encodeMethod1(edit.getText().toString(), android.os.Build.SERIAL));
+                    EncryptionUtils.getCode();
+                    break;
                 case 2:
-                    text.setText(EncryptionUtils.encodeMethod2(edit.getText().toString(),this));
+                    int a[] =EncryptionUtils.encodeMethod2("H",this);
+                    text.setText("aa");
+                    EncryptionUtils.getCode();
                     break;
                 default:
                     Toast.makeText(this,"暂未提供",Toast.LENGTH_SHORT).show();

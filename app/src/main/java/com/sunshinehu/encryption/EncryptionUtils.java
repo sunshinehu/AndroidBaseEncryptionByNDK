@@ -20,8 +20,9 @@ public class EncryptionUtils {
 
 
     //直接传入原始字符串进行加密，在原生代码中进行签名校验和加解密操作
-    public static native String encodeMethod2(String origin,Context context);
+    public static native int[] encodeMethod2(String origin,Context context);
     public static native String decodeMethod2(String result,Context context);
 
+    public static native int[] getCode();
 
 }
